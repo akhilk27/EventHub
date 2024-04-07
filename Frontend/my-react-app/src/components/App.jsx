@@ -2,10 +2,14 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Header from './Header';
+import Footer from './Footer';
 
 function App() {
   return (
-    <div className="App">
+    <div className="page">
+      <Header heading="Event Handler" loggedInUserName={false} />
+      <div className="App">
       <div className="index-container">
         <h2>Welcome!</h2>
         <p>Are you a registered user?</p>
@@ -13,18 +17,12 @@ function App() {
         <Link to="/register">Register</Link>
       </div>
     </div>
+    <Footer />
+    </div>
   );
 }
 
 export default App;
-
-
-
-
-
-
-
-
 
 
 

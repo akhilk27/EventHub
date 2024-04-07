@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Header from './Header';
+import Footer from './Footer';
 
 function Register() {
   const [name, setName] = useState('');
@@ -31,7 +33,9 @@ function Register() {
   };
 
   return (
-    <div className="index-container">
+    <div className="page">
+      <Header heading="Welcome to EventHandler!" loggedInUserName={false} />
+      <div className="index-container">
       <h2>Register</h2>
       <input
         type="text"
@@ -60,6 +64,8 @@ function Register() {
       <button onClick={handleRegister}>Register</button>
 
       <p>Already registered? <a href="/login">Login here</a></p>
+    </div>
+    <Footer />
     </div>
   );
 }

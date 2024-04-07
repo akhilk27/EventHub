@@ -33,22 +33,24 @@ app.post('/register', async (req, res) => {
 });
 
 app.post('/login', async (req, res) => {
-    const { email, password } = req.body;
-    try {
-        const query = 'SELECT id FROM users WHERE email = $1 AND password = $2';
-        const result = await db.query(query, [email, password]);
-        if (result.rows.length === 1) {
-            const userID = result.rows[0].id; // Retrieve the user ID from the query result
-            console.log("UserID:",userID);
-            res.status(200).json({ userID }); // Return the user ID in the response
-        } else {
-            res.sendStatus(401); // Unauthorized
-        }
-    } catch (error) {
-        console.error('Error logging in user:', error);
-        res.sendStatus(500);
-    }
+  const { email, password } = req.body;
+  try {
+      const query = 'SELECT id, name FROM users WHERE email = $1 AND password = $2'; // Modify the query to include first_name
+      const result = await db.query(query, [email, password]);
+      if (result.rows.length === 1) {
+          const { id, name } = result.rows[0]; // Retrieve the user ID and first name from the query result
+          console.log("UserID:", id);
+          console.log("Name:", name);
+          res.status(200).json({ id, name }); // Return the user ID and first name in the response
+      } else {
+          res.sendStatus(401); // Unauthorized
+      }
+  } catch (error) {
+      console.error('Error logging in user:', error);
+      res.sendStatus(500);
+  }
 });
+
 
 // Create Event
 app.post('/create-event', async (req, res) => {

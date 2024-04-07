@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import Header from './Header';
+import Footer from './Footer';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -17,8 +19,11 @@ function Login() {
         body: JSON.stringify({ email, password })
       });
       if (response.ok) {
-        // Store email in localStorage upon successful login
-        localStorage.setItem('loggedInUserEmail', email);
+        const userData = await response.json();
+        // Store user ID and name in localStorage upon successful login
+        localStorage.setItem('loggedInUserID', userData.id);
+        localStorage.setItem('loggedInUserName', userData.name); // Adjusted to use 'name' key
+        console.log("UserID: ", localStorage.getItem('loggedInUserID'), " Name: ", localStorage.getItem('loggedInUserName'));
         // Redirect to homepage after successful login
         navigate('/home');
       } else {
@@ -30,26 +35,31 @@ function Login() {
       alert('Error logging in');
     }
   };
+  
 
   return (
-    <div className="index-container">
-      <h2>Login</h2>
-      <input
-        type="text"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin}>Login</button>
-      {errorMessage && (
-        <p>{errorMessage} <Link to="/register">Register</Link></p>
-      )}
+    <div className="page">
+      <Header heading="Welcome Back!" loggedInUserName={false}/>
+      <div className="index-container">
+        <h2>Login</h2>
+        <input
+          type="text"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button onClick={handleLogin}>Login</button>
+        {errorMessage && (
+          <p>{errorMessage} <Link to="/register">Register</Link></p>
+        )}
+      </div>
+      <Footer />
     </div>
   );
 }

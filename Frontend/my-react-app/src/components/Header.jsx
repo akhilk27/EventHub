@@ -1,12 +1,14 @@
-import React from 'react';
+// Header.jsx
 
-function Header({ isLoggedIn, firstName }) {
+import React, { useState } from 'react';
+
+const Header = ({ heading, isLoggedIn, userName }) => {
   return (
-    <header className="header">
-      <div className="logo">Event Handler</div>
-      {isLoggedIn && <div className="user-info">Logged in as {firstName}</div>}
+    <header>
+      <h1>{heading}</h1>
+      {isLoggedIn && <p>Signed in as {userName}</p>}
     </header>
   );
-}
+};
 
 export default Header;

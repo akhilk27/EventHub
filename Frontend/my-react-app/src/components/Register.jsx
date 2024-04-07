@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
+import './Register.css';
 
 function Register() {
   const [name, setName] = useState('');
@@ -35,37 +36,38 @@ function Register() {
   return (
     <div className="page">
       <Header heading="Welcome to EventHandler!" loggedInUserName={false} />
-      <div className="index-container">
-      <h2>Register</h2>
-      <input
+      <div className="App">
+        <div className="index-container">
+        <h2>Register</h2>
+        <input
         type="text"
         placeholder="Name"
         value={name}
         onChange={(e) => setName(e.target.value)}
-      />
-      <input
+        />
+        <input
         type="email"
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
+        />
+        <input
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-      />
-      <input
+        />
+        <input
         type="text"
         placeholder="UserID"
         value={userID}
         onChange={(e) => setUserID(e.target.value)}
-      />
-      <button onClick={handleRegister}>Register</button>
-
-      <p>Already registered? <a href="/login">Login here</a></p>
-    </div>
-    <Footer />
+        />
+        <button class="registerButton" onClick={handleRegister}>Register</button>
+        <p>Already registered? <a href="/login">Login here</a></p>
+      </div>
+      </div>     
+      <Footer />
     </div>
   );
 }

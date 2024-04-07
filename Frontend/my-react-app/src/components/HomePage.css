@@ -1,0 +1,103 @@
+/* HomePage.css */
+.index-container {
+    text-align: center; /* Center align the content */
+    padding: 40px; /* Add padding around the content */
+    border: 2px solid white; /* Border with a color */
+    border-radius: 8px; /* Add rounded corners to the border */
+    margin: 20px;
+  }
+  
+  .index-container h2 {
+    margin-top: 20px;
+    margin-bottom: 32px; /* Add margin below the heading */
+  }
+  .index-container p {
+    margin-bottom: 20px; /* Add margin below the heading */
+  }
+  
+  .index-container button {
+    display: block; /* Make the buttons block elements */
+    width: 250px; /* Set the width of the buttons */
+    margin: 40px auto; /* Center the buttons horizontally and add margin between them */
+  }
+  
+  .App {
+    text-align: center;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    height: 100vh;
+    overflow-y: auto;
+    width: 100%;
+    padding: 5% 5% 1% 5%;
+  }
+
+.hp-h1{
+    margin-bottom: 55px;
+    display: block;
+}
+.hp-p{
+    margin-bottom: 45px;
+    display: block;
+}
+ 
+  .homeButtonsDiv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .homeButtons {
+    width: calc(25% - 20px); /* 25% width for each button with 20px margin */
+    margin: 10px;
+    padding: 20px;
+    border: none;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    appearance: none;
+    outline: 0;
+    font-size: 18px;
+    text-align: center;
+    color: #50a3a2;    
+  }
+  
+  .homeButtons:hover {
+    transform: translateY(-5px); /* Add a slight lift on hover */
+  }
+
+  .logoutButton {
+    display: block;
+    margin: 20px auto; /* Center align the logout button */
+    padding: 10px 20px;
+    background-color: #F59C3B;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 75px;
+    width: 120px;
+    font-size: 16px;
+  }
+  
+  .logoutButton:hover {
+    background-color: #1AAE9E;
+  }
+  
+  /* Media queries for responsiveness */
+  @media (max-width: 768px) {
+    .homeButtons {
+      width: calc(50% - 20px); /* 50% width for each button with 20px margin */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .homeButtons {
+      width: calc(100% - 20px); /* 100% width for each button with 20px margin */
+    }
+  }
+  

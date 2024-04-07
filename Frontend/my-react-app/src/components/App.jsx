@@ -4,20 +4,24 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
+import './App1.css';
+
 
 function App() {
   return (
     <div className="page">
-      <Header heading="Event Handler" loggedInUserName={false} />
+      <Header heading="Event Handler" loggedInUserName={false} className="header"/>
       <div className="App">
-      <div className="index-container">
-        <h2>Welcome!</h2>
-        <p>Are you a registered user?</p>
-        <Link to="/login">Login</Link>
-        <Link to="/register">Register</Link>
+        <div className="index-container">
+          <h2>Welcome!</h2>
+          <p>Are you a registered user?</p>
+          <div className="linksClass">
+            <Link to="/login">Login</Link>
+            <Link to="/register">Register</Link>
+          </div>
+        </div>
       </div>
-    </div>
-    <Footer />
+      <Footer className="footer" />
     </div>
   );
 }

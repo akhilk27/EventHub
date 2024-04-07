@@ -1,0 +1,61 @@
+.goToHome {
+    appearance: none;
+    outline: 0;
+    background-color: white;
+    border: 0;
+    padding: 10px 15px;
+    color: #50a3a2;
+    border-radius: 3px;
+    width: 150px;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+.leaveEvent {
+    appearance: none;
+    outline: 0;
+    background-color: white;
+    border: 0;
+    padding: 10px 15px;
+    color: #50a3a2;
+    border-radius: 3px;
+    width: 75%;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .index-container {
+    text-align: center; /* Center align the content */
+    padding: 40px; /* Add padding around the content */
+    border: 2px solid white; /* Border with a color */
+    border-radius: 8px; /* Add rounded corners to the border */
+    margin: 20px;
+  }
+  
+  .index-container h2 {
+    margin-top: 20px;
+    margin-bottom: 32px; /* Add margin below the heading */
+  }
+  .index-container p {
+    margin-bottom: 20px; /* Add margin below the heading */
+  }
+  
+  .index-container button {
+    display: block; /* Make the buttons block elements */
+    width: 250px; /* Set the width of the buttons */
+    margin: 40px auto; /* Center the buttons horizontally and add margin between them */
+  }
+
+
+  .no-events {
+    background-color: white; /* Background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
+    padding: 120px 70px; /* Padding inside the card */
+    margin-bottom: 20px; /* Margin between cards */
+    text-align: center; /* Center text */
+    color: #50a3a2; /* Text color */
+    font-size: 22px;
+  }
+  

@@ -63,29 +63,37 @@ const ViewDashboard = () => {
       <Header heading="Your Dashboard" isLoggedIn={true} userName={window.loggedInUserName} />
       <div className="App">
         <div className="container">
-          {userEvents.map(event => (
-            <div className="user-event-card" key={event.id}>
-              <h2>{event.name}</h2>
-              <br />
-              <p>Date: {new Date(event.eventdate).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit'
-              })}</p>
-              <p>Time: {event.eventtime}</p>
-              <p>Period: {event.eventperiod}</p>
-              <p>Min: {event.min}</p>
-              <p>Max: {event.max}</p>
-              <p>Head Count: {event.current}</p>
-              <p>Location: {event.location}</p>
-              <p>Details: {event.additionaldetails}</p>
-              {/* <button onClick={() => navigateToEventDetails(event.id)}>Details</button> */}
-              <button className="deleteEvent" onClick={() => handleEventDeletion(event.id)}>Delete</button>
-            </div>
-          ))}
+          {userEvents.length === 0 ? (
+            <p className='no-events'>No events found</p>
+          ) : (
+            userEvents.map(event => (
+              <div className="user-event-card" key={event.id}>
+                <h2>{event.name}</h2>
+                <br />
+                <p>Date: {new Date(event.eventdate).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: '2-digit',
+                  day: '2-digit'
+                })}</p>
+                <p>Time: {event.eventtime}</p>
+                <p>Period: {event.eventperiod}</p>
+                <p>Min: {event.min}</p>
+                <p>Max: {event.max}</p>
+                <p>Head Count: {event.current}</p>
+                <p>Location: {event.location}</p>
+                <p>Details: {event.additionaldetails}</p>
+                {/* <button onClick={() => navigateToEventDetails(event.id)}>Details</button> */}
+                <button className="deleteEvent" onClick={() => handleEventDeletion(event.id)}>Delete</button>
+              </div>
+            ))
+          )}
         </div>
+        <div className="buttonsDiv">
         <button className="makeNewEvent" onClick={redirectToCreateEvent}>Create New Event</button>
-        <button className="makeNewEvent" onClick={navigateToHome}>Home</button>
+        </div>
+        <div className="buttonsDiv">
+        <button className="makeNewEvent" onClick={navigateToHome}>Home</button>          
+        </div>
       </div>
       <Footer />
     </div>

@@ -75,7 +75,7 @@ const JoinedEvents = () => {
             </div>
           ))
         ) : (
-          <p className='no-events '>No events found</p>
+          <p className='no-events'>No events found</p>
         )}
       </div>
       <button className='goToHome' onClick={goToStart}>Home</button>

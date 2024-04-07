@@ -101,3 +101,16 @@ input {
     transform: rotate(360deg);
   }
 }
+
+
+
+.no-events {
+  background-color: white; /* Background color */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
+  padding: 120px 70px; /* Padding inside the card */
+  margin-bottom: 20px; /* Margin between cards */
+  text-align: center; /* Center text */
+  color: #50a3a2; /* Text color */
+  font-size: 22px;
+}

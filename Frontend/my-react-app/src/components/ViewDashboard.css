@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.App {
+  padding: 1% 5% 1% 5%;
+}
+
 .container {
   margin: 10% auto;
   padding: 80px 0;
@@ -13,6 +17,9 @@
   font-weight: 200;
 }
 
+.buttonsDiv{
+  text-align: center;
+}
 .deleteEvent {
   appearance: none;
   outline: 0;
@@ -37,7 +44,6 @@
   width: 300px;
   font-size: 18px;
   text-align: center;
-  display: block;
   margin-top: 20px;
 }
 

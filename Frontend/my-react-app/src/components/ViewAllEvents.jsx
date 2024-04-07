@@ -60,21 +60,25 @@ const ViewAllEvents = () => {
       <Header heading="View All Events" isLoggedIn={true} userName={window.loggedInUserName} />
       <div className="App">
          
-        <div className="event-container">
-          {events.map(event => (
-            <div className="event-card" key={event.id}>
-              <h2>{event.name}</h2>
-              <p>Date: {new Date(event.eventdate).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit'
-              })}</p>
-              <p>Time: {event.eventtime}</p>
-              <p>Period: {event.eventperiod}</p>
-              <p>Current: {event.current}/{event.max}</p>
-              <button className='joinButton' onClick={() => joinEvent(event.id)} disabled={event.current >= event.max}>Join</button>
-            </div>
-          ))}
+      <div className="event-container">
+          {events.length === 0 ? (
+            <p className='no-events'>No events found</p>
+          ) : (
+            events.map(event => (
+              <div className="event-card" key={event.id}>
+                <h2>{event.name}</h2>
+                <p>Date: {new Date(event.eventdate).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: '2-digit',
+                  day: '2-digit'
+                })}</p>
+                <p>Time: {event.eventtime}</p>
+                <p>Period: {event.eventperiod}</p>
+                <p>Current: {event.current}/{event.max}</p>
+                <button className='joinButton' onClick={() => joinEvent(event.id)} disabled={event.current >= event.max}>Join</button>
+              </div>
+            ))
+          )}
         </div>
         <button className='goToJoinedEvents' onClick={navigateToJoinedEvents}>Go to Joined Events</button>
       </div>

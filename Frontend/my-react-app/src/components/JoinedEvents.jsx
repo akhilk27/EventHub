@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Header from './Header';
+import Footer from './Footer';
 
 const JoinedEvents = () => {
   const [eventsByUser, setEventsByUser] = useState([]);
@@ -52,6 +54,8 @@ const JoinedEvents = () => {
   };
 
   return (
+    <div className="page">
+    <Header heading="Your Upcoming Events" isLoggedIn={true} userName = {localStorage.getItem('loggedInUserName')} />
     <div>
       <button onClick={goToStart}>Start</button>
 
@@ -75,6 +79,8 @@ const JoinedEvents = () => {
           <p>No events found</p>
         )}
       </div>
+    </div>
+    <Footer />
     </div>
   );
 };

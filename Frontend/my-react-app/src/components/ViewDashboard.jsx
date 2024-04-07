@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Header from './Header';
+import Footer from './Footer';
 
 const ViewDashboard = () => {
   const [userEvents, setUserEvents] = useState([]);
@@ -56,7 +58,9 @@ const ViewDashboard = () => {
   };
 
   return (
-    <div>
+    <div className="page">
+      <Header heading="Your Dashboard" isLoggedIn={true} userName = {localStorage.getItem('loggedInUserName')} />
+      <div>
       <button onClick={navigateToHome}>Home</button>
 
       <div className="container">
@@ -84,6 +88,11 @@ const ViewDashboard = () => {
       <div className="user-event-card">
         <button onClick={redirectToCreateEvent}>Create New Event</button>
       </div>
+    </div>
+
+    <Footer />
+
+
     </div>
   );
 };

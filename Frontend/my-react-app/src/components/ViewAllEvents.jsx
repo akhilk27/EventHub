@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Header from './Header';
+import Footer from './Footer';
 
 const ViewAllEvents = () => {
   const [events, setEvents] = useState([]);
@@ -11,6 +13,7 @@ const ViewAllEvents = () => {
     try {
       const owner_email = localStorage.getItem('loggedInUserEmail');
       console.log("Email ID sending to Query:", owner_email);
+      console.log("Local Storage in View-All-Events: ", localStorage);
       const response = await fetch(`http://localhost:8080/view-events?owner_email=${owner_email}&order_by=date,eventtime`);
       if (response.ok) {
         const eventData = await response.json();
@@ -52,7 +55,9 @@ const ViewAllEvents = () => {
   };
 
   return (
-    <div>
+    <div className="page">
+      <Header heading="View All Events" isLoggedIn={true} userName = {localStorage.getItem('loggedInUserName')} />
+      <div>
       <button onClick={navigateToJoinedEvents}>Joined Events</button>
   
       <div className="event-container">
@@ -71,6 +76,8 @@ const ViewAllEvents = () => {
           </div>
         ))}
       </div>
+      </div>
+      <Footer />
     </div>
   );
 };

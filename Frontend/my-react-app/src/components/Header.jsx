@@ -1,12 +1,12 @@
-// Header.jsx
+import React from 'react';
 
-import React, { useState } from 'react';
-
-const Header = ({ heading, isLoggedIn, userName }) => {
+const Header = ({ heading, isLoggedIn = false, userName = '', onLogout }) => {
   return (
     <header>
       <h1>{heading}</h1>
-      {isLoggedIn && <p>Signed in as {userName}</p>}
+      {isLoggedIn && userName && (
+        <p>Hi, {userName}!</p>
+      )}
     </header>
   );
 };

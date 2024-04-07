@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Header from './Header';
+import Footer from './Footer';
 
 const CreateEvent = () => {
   const [name, setName] = useState('');
@@ -68,6 +70,8 @@ const CreateEvent = () => {
   };
 
   return (
+    <div className = "page">
+    <Header heading="Create Event" isLoggedIn={true} userName={localStorage.getItem('loggedInUserName')} />
     <div>
       <button onClick={goToHome}>Home</button>
       <br />
@@ -131,6 +135,8 @@ const CreateEvent = () => {
         </label>
         <button type="submit">Create Event</button>
       </form>
+    </div>
+    <Footer />
     </div>
   );
 };

@@ -19,6 +19,10 @@ const JoinedEvents = () => {
       } else {
         throw new Error('Failed to fetch events');
       }
+      console.log("In JoinedEvents.jsx")
+      console.log("window.loggedInUserEmail: ", window.loggedInUserEmail)
+      console.log("window.loggedInUserName: ", window.loggedInUserName)
+      console.log("window.loggedInUserId: ", window.loggedInUserId)
     } catch (error) {
       console.error(error);
       // Handle error

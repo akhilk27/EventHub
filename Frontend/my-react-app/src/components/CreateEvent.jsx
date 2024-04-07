@@ -50,10 +50,14 @@ const CreateEvent = () => {
       console.log(owner_email);
 
       console.log("CreateEventResponse:", createEventResponse);
+      console.log("In CreateEvents.jsx after submitting the Create Event button");
+      console.log("window.loggedInUserEmail: ", window.loggedInUserEmail)
+      console.log("window.loggedInUserName: ", window.loggedInUserName)
+      console.log("window.loggedInUserId: ", window.loggedInUserId)
   
       if (createEventResponse.ok) {
         alert('Event created successfully');
-        // Redirect or navigate to the page displaying all events
+        // Redirect or navigate to the page displaying all events     
         window.location.href = '/view-dashboard';
       } else {
         throw new Error('Failed to create event');

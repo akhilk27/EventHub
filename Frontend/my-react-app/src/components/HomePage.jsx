@@ -19,6 +19,10 @@ const Homepage = () => {
 
   const redirectTo = (path) => {
     // Redirect user to the specified path
+    console.log("Going to path:", path);
+    console.log("window.loggedInUserEmail: ", window.loggedInUserEmail);
+    console.log("window.loggedInUserName: ", window.loggedInUserName);
+    console.log("window.loggedInUserId: ", window.loggedInUserId);
     navigate(path);
   };
 

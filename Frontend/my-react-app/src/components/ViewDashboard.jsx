@@ -44,6 +44,10 @@ const ViewDashboard = () => {
       const response = await fetch(`http://localhost:8080/delete-event/${eventId}`, {
         method: 'DELETE',
       });
+      console.log("In ViewDashboard.jsx")
+      console.log("window.loggedInUserEmail: ", window.loggedInUserEmail)
+      console.log("window.loggedInUserName: ", window.loggedInUserName)
+      console.log("window.loggedInUserId: ", window.loggedInUserId)
       if (response.ok) {
         // Remove the deleted event from the userEvents state
         setUserEvents(userEvents.filter(event => event.id !== eventId));

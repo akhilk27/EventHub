@@ -40,6 +40,10 @@ const ViewAllEvents = () => {
           event_id: eventID
         })
       });
+      console.log("In ViewAllEvents.jsx")
+      console.log("window.loggedInUserEmail: ", window.loggedInUserEmail)
+      console.log("window.loggedInUserName: ", window.loggedInUserName)
+      console.log("window.loggedInUserId: ", window.loggedInUserId)
       if (response.ok) {
         fetchEvents(); // Trigger reload after joining event
       } else {

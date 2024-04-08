@@ -15,6 +15,10 @@ const CreateEvent = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (min < 0 || max < 0) {
+      alert('Min and Max values cannot be negative');
+      return;
+    }
     if (min > max) {
       alert('Minimum players cannot be greater than maximum players');
       return;
@@ -24,8 +28,8 @@ const CreateEvent = () => {
       return;
     }
     try {
-      // Retrieve email from window object
-      const owner_email = window.loggedInUserEmail;
+      // Retrieve email from localStorage
+      const owner_email = localStorage.getItem('loggedInUserEmail');
   
       // Send create event request with all form field values
       const createEventResponse = await fetch('http://localhost:8080/create-event', {
@@ -41,7 +45,7 @@ const CreateEvent = () => {
           eventPeriod,
           min,
           max,
-          current:0,
+          current: 0,
           location,
           additionaldetails
         })
@@ -50,10 +54,6 @@ const CreateEvent = () => {
       console.log(owner_email);
 
       console.log("CreateEventResponse:", createEventResponse);
-      console.log("In CreateEvents.jsx after submitting the Create Event button");
-      console.log("window.loggedInUserEmail: ", window.loggedInUserEmail)
-      console.log("window.loggedInUserName: ", window.loggedInUserName)
-      console.log("window.loggedInUserId: ", window.loggedInUserId)
   
       if (createEventResponse.ok) {
         alert('Event created successfully');
@@ -74,7 +74,7 @@ const CreateEvent = () => {
 
   return (
     <div className = "page">
-      <Header heading="Create Event" isLoggedIn={true} userName={window.loggedInUserName} />
+      <Header heading="Make Your Own Event!!" isLoggedIn={true} userName={localStorage.getItem('loggedInUserName')} />
       <div className='App'>
         <form className='form' onSubmit={handleSubmit}>
           <label>
@@ -94,12 +94,12 @@ const CreateEvent = () => {
           <br />
           <label>
             Min People:
-            <input type="number" value={min} onChange={(event) => setMin(parseInt(event.target.value))} />
+            <input type="number" value={min} onChange={(event) => setMin(Math.max(parseInt(event.target.value), 0))} />
           </label>
           <br />
           <label>
             Max People:
-            <input type="number" value={max} onChange={(event) => setMax(parseInt(event.target.value))} />
+            <input type="number" value={max} onChange={(event) => setMax(Math.max(parseInt(event.target.value), 0))} />
           </label>
           <br />
           <label>
@@ -144,6 +144,7 @@ const CreateEvent = () => {
 };
 
 export default CreateEvent;
+
 
 
 

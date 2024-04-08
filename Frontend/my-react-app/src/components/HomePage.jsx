@@ -9,10 +9,10 @@ const Homepage = () => {
 
   // Function to handle logout
   const handleLogout = () => {
-    // Remove user details from window object
-    window.loggedInUserEmail = null;
-    window.loggedInUserName = null;
-    window.loggedInUserId = null;
+    // Remove user details from localStorage
+    localStorage.removeItem('loggedInUserEmail');
+    localStorage.removeItem('loggedInUserName');
+    localStorage.removeItem('loggedInUserId');
     // Navigate user to the '/' route
     navigate('/');
   };
@@ -20,15 +20,15 @@ const Homepage = () => {
   const redirectTo = (path) => {
     // Redirect user to the specified path
     console.log("Going to path:", path);
-    console.log("window.loggedInUserEmail: ", window.loggedInUserEmail);
-    console.log("window.loggedInUserName: ", window.loggedInUserName);
-    console.log("window.loggedInUserId: ", window.loggedInUserId);
+    console.log("localStorage.loggedInUserEmail: ", localStorage.getItem('loggedInUserEmail'));
+    console.log("localStorage.loggedInUserName: ", localStorage.getItem('loggedInUserName'));
+    console.log("localStorage.loggedInUserId: ", localStorage.getItem('loggedInUserId'));
     navigate(path);
   };
 
   return (
     <div className="page">
-      <Header heading="Event Hub" isLoggedIn={true} userName={window.loggedInUserName} onLogout={handleLogout} />
+      <Header heading="Event Hub" isLoggedIn={true} userName={localStorage.getItem('loggedInUserName')} onLogout={handleLogout} />
       <div className="App">
         <h1 className="hp-h1">Welcome to the Event Hub!</h1>
         <p className="hp-p">Connect with like-minded individuals and explore exciting events.</p>

@@ -12,7 +12,7 @@ const ViewDashboard = () => {
 
   const fetchUserEvents = async () => {
     try {
-      const userEmail = window.loggedInUserEmail; // Retrieve email from window object
+      const userEmail = localStorage.getItem('loggedInUserEmail'); // Retrieve email from localStorage
       const response = await fetch(`http://localhost:8080/view-dashboard?email=${userEmail}`);
       if (response.ok) {
         const eventData = await response.json();
@@ -45,9 +45,9 @@ const ViewDashboard = () => {
         method: 'DELETE',
       });
       console.log("In ViewDashboard.jsx")
-      console.log("window.loggedInUserEmail: ", window.loggedInUserEmail)
-      console.log("window.loggedInUserName: ", window.loggedInUserName)
-      console.log("window.loggedInUserId: ", window.loggedInUserId)
+      console.log("localStorage.loggedInUserEmail: ", localStorage.getItem('loggedInUserEmail'))
+      console.log("localStorage.loggedInUserName: ", localStorage.getItem('loggedInUserName'))
+      console.log("localStorage.loggedInUserId: ", localStorage.getItem('loggedInUserId'))
       if (response.ok) {
         // Remove the deleted event from the userEvents state
         setUserEvents(userEvents.filter(event => event.id !== eventId));
@@ -64,7 +64,7 @@ const ViewDashboard = () => {
 
   return (
     <div className="page">
-      <Header heading="Your Dashboard" isLoggedIn={true} userName={window.loggedInUserName} />
+      <Header heading="Your Dashboard" isLoggedIn={true} userName={localStorage.getItem('loggedInUserName')} />
       <div className="App">
         <div className="container">
           {userEvents.length === 0 ? (
@@ -93,10 +93,10 @@ const ViewDashboard = () => {
           )}
         </div>
         <div className="buttonsDiv">
-        <button className="makeNewEvent" onClick={redirectToCreateEvent}>Create New Event</button>
+          <button className="makeNewEvent" onClick={redirectToCreateEvent}>Create New Event</button>
         </div>
         <div className="buttonsDiv">
-        <button className="makeNewEvent" onClick={navigateToHome}>Home</button>          
+          <button className="makeNewEvent" onClick={navigateToHome}>Home</button>          
         </div>
       </div>
       <Footer />
@@ -105,6 +105,7 @@ const ViewDashboard = () => {
 };
 
 export default ViewDashboard;
+
 
 
 

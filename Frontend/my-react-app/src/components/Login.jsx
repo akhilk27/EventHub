@@ -26,13 +26,13 @@ function Login() {
         console.log('User data:', userData); // Log the user data
 
         // Store user data in global variables
-        window.loggedInUserEmail = email;
-        window.loggedInUserName = userData.name;
-        window.loggedInUserId = userData.id;
+        localStorage.setItem('loggedInUserEmail', email);
+        localStorage.setItem('loggedInUserName', userData.name);
+        localStorage.setItem('loggedInUserId', userData.id);
 
-        console.log("window.loggedInUserEmail: ", window.loggedInUserEmail)
-        console.log("window.loggedInUserName: ", window.loggedInUserName)
-        console.log("window.loggedInUserId: ", window.loggedInUserId)
+        console.log("loggedInUserEmail: ", localStorage.getItem('loggedInUserEmail'));
+        console.log("loggedInUserName: ", localStorage.getItem('loggedInUserName'))
+        console.log("loggedInUserId: ", localStorage.getItem('loggedInUserId'))
 
         // Set user data and isLoggedIn state
         setUserData(userData);

@@ -12,7 +12,7 @@ const ViewAllEvents = () => {
 
   const fetchEvents = async () => {
     try {
-      const owner_email = window.loggedInUserEmail; // Retrieve email from window object
+      const owner_email = localStorage.getItem('loggedInUserEmail'); // Retrieve email from localStorage
       console.log("Email ID sending to Query:", owner_email);
       console.log("Local Storage in View-All-Events: ", localStorage);
       const response = await fetch(`http://localhost:8080/view-events?owner_email=${owner_email}&order_by=date,eventtime`);
@@ -36,14 +36,14 @@ const ViewAllEvents = () => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          user_email: window.loggedInUserEmail, // Retrieve email from window object
+          user_email: localStorage.getItem('loggedInUserEmail'), // Retrieve email from localStorage
           event_id: eventID
         })
       });
       console.log("In ViewAllEvents.jsx")
-      console.log("window.loggedInUserEmail: ", window.loggedInUserEmail)
-      console.log("window.loggedInUserName: ", window.loggedInUserName)
-      console.log("window.loggedInUserId: ", window.loggedInUserId)
+      console.log("localStorage.loggedInUserEmail: ", localStorage.getItem('loggedInUserEmail'))
+      console.log("localStorage.loggedInUserName: ", localStorage.getItem('loggedInUserName'))
+      console.log("localStorage.loggedInUserId: ", localStorage.getItem('loggedInUserId'))
       if (response.ok) {
         fetchEvents(); // Trigger reload after joining event
       } else {
@@ -61,7 +61,7 @@ const ViewAllEvents = () => {
 
   return (
     <div className="page">
-      <Header heading="View All Events" isLoggedIn={true} userName={window.loggedInUserName} />
+      <Header heading="View All Events Around You!!" isLoggedIn={true} userName={localStorage.getItem('loggedInUserName')} />
       <div className="App">
          
       <div className="event-container">
@@ -92,6 +92,7 @@ const ViewAllEvents = () => {
 };
   
 export default ViewAllEvents;
+
 
 
 

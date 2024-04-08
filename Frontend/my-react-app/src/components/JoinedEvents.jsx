@@ -12,7 +12,8 @@ const JoinedEvents = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/joined-events?user_email=${window.loggedInUserEmail}`);
+      const userEmail = localStorage.getItem('loggedInUserEmail'); // Retrieve email from localStorage
+      const response = await fetch(`http://localhost:8080/joined-events?user_email=${userEmail}`);
       if (response.ok) {
         const data = await response.json();
         setEventsByUser(data.attendedEvents);
@@ -20,9 +21,9 @@ const JoinedEvents = () => {
         throw new Error('Failed to fetch events');
       }
       console.log("In JoinedEvents.jsx")
-      console.log("window.loggedInUserEmail: ", window.loggedInUserEmail)
-      console.log("window.loggedInUserName: ", window.loggedInUserName)
-      console.log("window.loggedInUserId: ", window.loggedInUserId)
+      console.log("localStorage.loggedInUserEmail: ", localStorage.getItem('loggedInUserEmail'))
+      console.log("localStorage.loggedInUserName: ", localStorage.getItem('loggedInUserName'))
+      console.log("localStorage.loggedInUserId: ", localStorage.getItem('loggedInUserId'))
     } catch (error) {
       console.error(error);
       // Handle error
@@ -37,7 +38,7 @@ const JoinedEvents = () => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          user_email: window.loggedInUserEmail,
+          user_email: localStorage.getItem('loggedInUserEmail'),
           event_id: eventID
         })
       });
@@ -60,36 +61,37 @@ const JoinedEvents = () => {
 
   return (
     <div className="page">
-    <Header heading="Your Upcoming Events" isLoggedIn={true} userName={window.loggedInUserName} />
-    <div className="App">      
-      <div className="event-container">
-        {eventsByUser.length > 0 ? (
-          eventsByUser.map(event => (
-            <div className="event-card" key={event.id}>
-              <h2>{event.name}</h2>
-              <p>Date: {new Date(event.eventdate).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit'
-              })}</p>
-              <p>Time: {event.eventtime}</p>
-              <p>Period: {event.eventperiod}</p>
-              <p>Current: {event.current}/{event.max}</p>
-              <button className='leaveEvent' onClick={() => leaveEvent(event.id)}>Leave</button>
-            </div>
-          ))
-        ) : (
-          <p className='no-events'>No events found</p>
-        )}
+      <Header heading="Your Upcoming Events" isLoggedIn={true} userName={localStorage.getItem('loggedInUserName')} />
+      <div className="App">      
+        <div className="event-container">
+          {eventsByUser.length > 0 ? (
+            eventsByUser.map(event => (
+              <div className="event-card" key={event.id}>
+                <h2>{event.name}</h2>
+                <p>Date: {new Date(event.eventdate).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: '2-digit',
+                  day: '2-digit'
+                })}</p>
+                <p>Time: {event.eventtime}</p>
+                <p>Period: {event.eventperiod}</p>
+                <p>Current: {event.current}/{event.max}</p>
+                <button className='leaveEvent' onClick={() => leaveEvent(event.id)}>Leave</button>
+              </div>
+            ))
+          ) : (
+            <p className='no-events'>No events found</p>
+          )}
+        </div>
+        <button className='goToHome' onClick={goToStart}>Home</button>
       </div>
-      <button className='goToHome' onClick={goToStart}>Home</button>
-    </div>
-    <Footer />
+      <Footer />
     </div>
   );
 };
 
 export default JoinedEvents;
+
 
 
 

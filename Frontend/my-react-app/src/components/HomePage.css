@@ -1,36 +1,35 @@
 /* HomePage.css */
 .index-container {
-    text-align: center; /* Center align the content */
-    padding: 40px; /* Add padding around the content */
-    border: 2px solid white; /* Border with a color */
-    border-radius: 8px; /* Add rounded corners to the border */
+    text-align: center;
+    padding: 40px; 
+    border: 2px solid white;
+    border-radius: 8px;
     margin: 20px;
   }
-  
   .index-container h2 {
     margin-top: 20px;
-    margin-bottom: 32px; /* Add margin below the heading */
+    margin-bottom: 32px;
   }
   .index-container p {
-    margin-bottom: 20px; /* Add margin below the heading */
+    margin-bottom: 20px;
   }
-  
   .index-container button {
-    display: block; /* Make the buttons block elements */
-    width: 250px; /* Set the width of the buttons */
-    margin: 40px auto; /* Center the buttons horizontally and add margin between them */
+    display: block;
+    width: 250px;
+    margin: 40px auto;
   }
   
   .App {
     text-align: center;
-    justify-content: center; /* Center the content horizontally */
-    align-items: center; /* Center the content vertically */
+    justify-content: center;
+    align-items: center;
     height: 100vh;
     overflow-y: auto;
     width: 100%;
     padding: 5% 5% 1% 5%;
     margin-top: 50px;
   }
+
 
 .hp-h1{
     margin-bottom: 45px;
@@ -42,7 +41,7 @@
     font-family: cursive;
     font-size: 1rem;
 }
- 
+
   .homeButtonsDiv {
     display: flex;
     flex-wrap: wrap;
@@ -50,7 +49,6 @@
     margin-top: 20px;
     margin-bottom: 20px;
   }
-  
   .homeButtons {
     width: calc(25% - 20px); /* 25% width for each button with 20px margin */
     margin: 10px;
@@ -67,7 +65,6 @@
     text-align: center;
     color: white;    
   }
-  
   .homeButtons:hover {
     transform: translateY(-5px); /* Add a slight lift on hover */
   }
@@ -86,7 +83,6 @@
     width: 120px;
     font-size: 16px;
   }
-  
   .logoutButton:hover {
     background-color: #FA7070;
   }

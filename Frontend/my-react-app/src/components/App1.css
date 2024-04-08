@@ -1,5 +1,4 @@
-
-  .index-container {
+.index-container {
     text-align: center;
     align-items: center;
     padding: 40px;
@@ -11,23 +10,22 @@
   }
   
   
-  .index-container h2 {
-    /* margin-bottom: 29px; */
-    font-size: 32px; /* Increase the font size for headings */
+.index-container h2 {
+    font-size: 32px;
     margin-top: 20px;
   }
   
-  .index-container p {
-    margin-bottom: 45px; /* Increase margin bottom for paragraphs */
-    font-size: 17px; /* Increase font size for paragraphs */
+.index-container p {
+    margin-bottom: 45px; 
+    font-size: 17px;
   }
   
-  .index-container a {
+.index-container a {
     display: block;
-    width: 200px; /* Increase the width of the links */
-    padding: 15px 30px; /* Increase padding for larger buttons */
-    margin: 20px auto; /* Center align and add margin between links */
-    font-size: 18px; /* Increase font size for links */
+    width: 200px;
+    padding: 15px 30px;
+    margin: 20px auto;
+    font-size: 18px;
     background-color: #2C7865;
     color: #fff;
   }
@@ -46,29 +44,3 @@
     color: #481E14;
   }
   
-
-
-   /* .index-container {
-    text-align: center;
-    align-items: center;
-  }
-  
-  .index-container h2 {
-    margin-bottom: 10px;
-  }
-  
-  .index-container p {
-    margin-bottom: 20px;
-  } */
-  
-  /* .index-container a {
-    display: block;
-    width: 150px;
-    padding: 10px 20px;
-    margin: 10px 0px 10px 0px;
-    background-color: #31F7BC;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  } */

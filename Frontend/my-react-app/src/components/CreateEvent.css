@@ -17,12 +17,12 @@
     margin-top: 50px;
     width: 250px;
 }
-
 .goToHomeButton:hover {
     background-color: #90D26D;
     color: #481E14;
   }
 
+  
 .createEventButton {
     appearance: none;
     outline: 0;
@@ -36,7 +36,6 @@
     text-align: center;
     margin-top: 20px;
   }
-
   .createEventButton:hover {
     background-color: #90D26D;
     color: #481E14;

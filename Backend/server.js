@@ -31,6 +31,27 @@ app.post('/register', async (req, res) => {
     res.sendStatus(500);
   }
 });
+// Assuming you have set up your database connection
+
+// Define a route to check if an email exists
+app.get('/check-email', async (req, res) => {
+  try {
+    const { email } = req.query;
+    
+    // Execute a query to find a user with the provided email
+    const result = await pool.query('SELECT COUNT(*) AS count FROM users WHERE email = $1', [email]);
+
+    // If a user with the provided email exists, return exists: true
+    // Otherwise, return exists: false
+    const exists = result.rows[0].count > 0;
+    res.json({ exists });
+  } catch (error) {
+    console.error('Error checking email:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+
 
 app.post('/login', async (req, res) => {
   const { email, password } = req.body;

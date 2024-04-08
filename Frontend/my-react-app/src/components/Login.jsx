@@ -55,7 +55,7 @@ function Login() {
       <Header heading="Welcome Back!" isLoggedIn={false} className="header" />
       <div className="App">
       <div className="index-container">
-        <h2>Login</h2>
+        <h2 className="loginH2">Login</h2>
         <input
           type="text"
           placeholder="Email"

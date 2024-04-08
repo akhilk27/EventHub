@@ -1,32 +1,15 @@
-/* .page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-  } */
-
-  /* .header {
-    padding-top: 40px;
-    color: black;
-  }
-  .footer {
-    padding-top: 20px;
-    padding-bottom: 20px;
-  } */
-/*   
-  .App {
-    text-align: center;
-  } */
 
   .index-container {
     text-align: center;
     align-items: center;
     padding: 40px;
-    border: 2px solid white;
+    border: 2px solid #007F73;;
     border-radius: 8px;
     margin: 20px;
     font-size: 20px;
+    margin: auto;
   }
+  
   
   .index-container h2 {
     /* margin-bottom: 29px; */
@@ -35,7 +18,7 @@
   }
   
   .index-container p {
-    margin-bottom: 30px; /* Increase margin bottom for paragraphs */
+    margin-bottom: 45px; /* Increase margin bottom for paragraphs */
     font-size: 17px; /* Increase font size for paragraphs */
   }
   
@@ -45,17 +28,22 @@
     padding: 15px 30px; /* Increase padding for larger buttons */
     margin: 20px auto; /* Center align and add margin between links */
     font-size: 18px; /* Increase font size for links */
-    background-color: #31F7BC;
+    background-color: #2C7865;
     color: #fff;
   }
   
+  .App-cont{
+    color: #007F73;
+  }
   
   .linksClass{
     text-align: center;
+    margin-top: 45px;
   }
   
   .index-container a:hover {
-    background-color: #dfe5ec;
+    background-color: #90D26D;
+    color: #481E14;
   }
   
 

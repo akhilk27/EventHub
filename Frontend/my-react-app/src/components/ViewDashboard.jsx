@@ -65,7 +65,7 @@ const ViewDashboard = () => {
   return (
     <div className="page">
       <Header heading="Your Dashboard" isLoggedIn={true} userName={localStorage.getItem('loggedInUserName')} />
-      <div className="App">
+      <div className="App viewdash">
         <div className="container">
           {userEvents.length === 0 ? (
             <p className='no-events'>No events found</p>

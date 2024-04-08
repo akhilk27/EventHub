@@ -1,12 +1,23 @@
 .loginButton {
     appearance: none;
     outline: 0;
-    background-color: white;
+    background-color: #007F73;
     border: 0;
     padding: 10px 15px;
-    color: #50a3a2;
+    color: white;
     border-radius: 3px;
     width: 250px;
     font-size: 18px;
     text-align: center;
   }
+
+  .loginButton:hover {
+    background-color: #90D26D;
+    color: #481E14;
+  }
+
+  .loginH2{
+    color: #007F73;
+  }
+
+  

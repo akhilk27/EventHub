@@ -38,7 +38,7 @@ function Register() {
       <Header heading="Welcome to EventHandler!" loggedInUserName={false} />
       <div className="App">
         <div className="index-container">
-        <h2>Register</h2>
+        <h2 className="registerH2">Register</h2>
         <input
         type="text"
         placeholder="Name"

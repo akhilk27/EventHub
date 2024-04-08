@@ -58,12 +58,14 @@ const ViewAllEvents = () => {
   const navigateToJoinedEvents = () => {
     window.location.href = '/joined-events'; // Redirect to the page displaying joined events
   };
+  const goToHome = () => {
+    window.location.href = '/home'; // Redirect to home page
+  };
 
   return (
     <div className="page">
       <Header heading="View All Events Around You!!" isLoggedIn={true} userName={localStorage.getItem('loggedInUserName')} />
-      <div className="App">
-         
+      <div className="App">         
       <div className="event-container">
           {events.length === 0 ? (
             <p className='no-events'>No events found</p>
@@ -84,7 +86,10 @@ const ViewAllEvents = () => {
             ))
           )}
         </div>
-        <button className='goToJoinedEvents' onClick={navigateToJoinedEvents}>Go to Joined Events</button>
+        <div>
+          <button className='goToJoinedEvents' onClick={navigateToJoinedEvents}>Go to Joined Events</button>
+        </div>
+        <button className="goToHomeButton vae-to-home" onClick={goToHome}>Home</button>
       </div>
       <Footer />
     </div>

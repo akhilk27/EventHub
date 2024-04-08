@@ -13,8 +13,8 @@ function App() {
       <Header heading="Event Handler" loggedInUserName={false} className="header"/>
       <div className="App">
         <div className="index-container">
-          <h2>Welcome!</h2>
-          <p>Are you a registered user?</p>
+          <h2 className="App-cont">Welcome!</h2>
+          <p className="App-cont">Are you a registered user?</p>
           <div className="linksClass">
             <Link to="/login">Login</Link>
             <Link to="/register">Register</Link>
